@@ -1,5 +1,6 @@
 #include <iostream>
 #include <sstream>
+#include <stdio.h>
 
 bool replace(std::string& str, const std::string& from, const std::string& to) {
     size_t start_pos = str.find(from);
@@ -17,7 +18,8 @@ void runner(std::string instructions) {
    	std::string command = segment.substr(0, segment.find(" "));
 	 	if (command == "write") {
 			replace(segment, "write ", "");
-			std::cout << segment << std::endl;
+			replace(segment, "\\n", "\n");
+			printf(segment.c_str());
 	 	}
 	}
 }
